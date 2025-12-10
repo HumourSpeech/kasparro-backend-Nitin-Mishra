@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlmodel
+psycopg2-binary
+httpx
+pydantic-settings
+python-multipart
+pandas
+pytest
+requests
+pydantic[email]
