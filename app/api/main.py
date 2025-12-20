@@ -6,7 +6,7 @@ from app.ingestion.pipeline import run_etl
 import threading
 import time
 
-# Background ETL runner for demo purposes (P0.3 requirement: "automatically start ETL")
+# automatically start ETL on startup
 def start_etl_loop():
     # Wait a bit for DB to be ready
     time.sleep(5)
@@ -27,10 +27,10 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown
 
-app = FastAPI(title="Kasparro Backend", lifespan=lifespan)
+app = FastAPI(title="CoreETL Backend", lifespan=lifespan)
 
 app.include_router(routes.router)
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to Kasparro API. Go to /docs for Swagger UI."}
+    return {"message": "Welcome to CoreETL API. Go to /docs for Swagger UI."}
